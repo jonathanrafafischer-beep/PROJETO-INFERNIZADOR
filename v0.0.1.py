@@ -1,3 +1,4 @@
+//O MAIN DO CODIGO, ONDE ELE VAI INICIAR TUDO, TEM AS FUNCOES DE INPUT DA FUNC DE INPUT
 def main():
     print("SIMULAÇÃO DE AGLOMERAÇÃO AGNP's")
     waveLenght = ler_input("Comprimento de onda do pico de absorbancia(300nm<=x<=900nm) : ", float, validacao=lambda x: 300<=x<=900)
@@ -6,6 +7,9 @@ def main():
     iniciarsimulação = input("Dados coletados, pressione enter para iniciar a simulação")
     simulacao(waveLenght, fwhm, naclconc)
 
+
+//PROTOTIPO DE SIMULAÇÃO
+//NÃO É UMA SIMULAÇAO DE VERDADE E SO UM IF ELSE ELIF ELIF
 def simulacao(waveLenght, fwhm, naclconc):
     pontos_de_risco = 0
 
@@ -38,6 +42,7 @@ def simulacao(waveLenght, fwhm, naclconc):
         print("Probabilidade de aglomeração na colônia: ALTÍSSIMA.")
 
 
+//FUNCAO PRA FACILITAR O INPUT, PQ VAI TER VARIADOS TIPOS DE ENTRADA, MENSAGEM SIGNIFICA O TEXTO, O TIPO É O TIPO DE DADO INT STRING ETC, VALIDACAO É POR EXEMPLO O INPUT SÓ VAI SE X > ALGUM VALOR Q VC QUISER
 def ler_input(mensagem, tipo, validacao=lambda x: True):
     while True:
         entrada = input(mensagem)
