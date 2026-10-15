@@ -3,12 +3,12 @@ pi = 3.14159265358979
 
 
 def main():
-    waveLenght = ler_input("Comprimento de onda do pico de absorbancia (300nm<=x<=900nm): ", float, validacao=lambda x: 300 <= x <= 900)
-    fwhm = ler_input("Largura a meia altura - FWHM (nm): ", float, validacao=lambda x: x > 0)
-    naclconc = ler_input("Concentracao de sal do meio (%): ", float, validacao=lambda x: x >= 0)
-    concentracao_agnp = ler_input("Concentracao de AgNP (ug/mL): ", float, validacao=lambda x: x > 0)
-    bacterias_iniciais = ler_input("Quantidade inicial de E. coli (CFU/mL): ", float, validacao=lambda x: x > 0)
-    tempo = ler_input("Tempo de exposicao (horas): ", float, validacao=lambda x: x > 0)
+    waveLenght = ler_input("Comprimento de onda do pico de absorbancia (300nm<=x<=900nm): ", float, validacao=lambda x: 300 <= x <= 900) # ajudam a indicar alteracoes no estado
+    fwhm = ler_input("Largura a meia altura - FWHM (nm): ", float, validacao=lambda x: x > 0) # das nanoparticulas 
+    naclconc = ler_input("Concentracao de sal do meio (%): ", float, validacao=lambda x: x >= 0) # vai ser removido descartado, mas também influencia na estabilidade por conta dos ions presentes no meio em que elas estariam(ideia descartada)
+    concentracao_agnp = ler_input("Concentracao de AgNP (ug/mL): ", float, validacao=lambda x: x > 0) #autoexplicativo
+    bacterias_iniciais = ler_input("Quantidade inicial de E. coli (CFU/mL): ", float, validacao=lambda x: x > 0)#autoexplicativo
+    tempo = ler_input("Tempo de exposicao (horas): ", float, validacao=lambda x: x > 0)#autoexplicativo
 
     input("Pressione enter pra iniciar a simulação")
 
@@ -75,7 +75,7 @@ def simulacao(waveLenght, fwhm, naclconc, concentracao_agnp, bacterias_iniciais,
     # N(t) = N0 * e^(-k*t)
     # N0 = bacterias no inicio
     # N(t) = bacterias depois de certo tempo
-    # k = intensidade do efeito
+    # k = intensidade do efeito antibacteriano
     # t = tempo
 
     bacterias_finais = (bacterias_iniciais * math.exp(-k * tempo)
@@ -119,3 +119,7 @@ def ler_input(mensagem, tipo, validacao=lambda x: True):
 
 if __name__ == "__main__":
     main()
+
+
+#valores pra usar de exemplo na apresentação
+#420, 60, 0.2, 1000000, 10, 12
