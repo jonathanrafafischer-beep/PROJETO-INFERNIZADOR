@@ -1,6 +1,4 @@
 import math
-pi = 3.14159265358979
-
 
 def main():
     waveLenght = ler_input("Comprimento de onda do pico de absorbancia (300nm<=x<=900nm): ", float, validacao=lambda x: 300 <= x <= 900) # ajudam a indicar alteracoes no estado
